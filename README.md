@@ -1,625 +1,319 @@
-﻿# Aplikasi Pencatatan Keuangan Pribadi
- # PRD — Rancang Bangun Aplikasi Pencatatan Keuangan Pribadi Berbasis Web
+# PRD Personal Finance
 
-## 1. Product Overview
+Sep 30, 2026 · @Nazwa wijaya
 
-**Nama Produk:** Personal Finance  
-**Judul:** Rancang Bangun Aplikasi Pencatatan Keuangan Pribadi Berbasis Web  
-**Platform:** Web Application  
-**Target Pengguna:** Individu, mahasiswa, pelajar, karyawan, dan masyarakat umum.
+## 1. Ringkasan Produk
 
-### Deskripsi
+**Personal Finance** adalah aplikasi web yang membantu siapa pun mencatat, mengelola, dan memantau keuangan pribadi dalam satu tempat: dari uang saku sampai gaji bulanan.
 
-Personal Finance adalah aplikasi berbasis web yang digunakan untuk membantu pengguna mencatat, mengelola, dan memantau kondisi keuangan pribadi.
+> *Catat sekali, saldo terhitung otomatis, kondisi keuangan langsung terlihat.*
 
-Pengguna dapat mencatat pemasukan dan pengeluaran, mengelompokkan transaksi berdasarkan kategori, melihat saldo secara otomatis, serta memantau kondisi keuangan melalui dashboard dan laporan.
+| Aspek | Keterangan |
+| --- | --- |
+| Nama produk | Personal Finance |
+| Judul proyek | Rancang Bangun Aplikasi Pencatatan Keuangan Pribadi Berbasis Web |
+| Platform | Aplikasi web (responsive: desktop, laptop, tablet, smartphone) |
+| Target pengguna | Individu, mahasiswa, pelajar, karyawan, dan masyarakat umum |
+| Nilai utama | Pencatatan terstruktur, saldo otomatis, dashboard dan laporan visual |
 
----
+Dengan Personal Finance, pengguna dapat:
 
-# 2. Problem Statement
+- Mencatat pemasukan dan pengeluaran dengan cepat.
+- Mengelompokkan transaksi berdasarkan kategori.
+- Melihat saldo yang dihitung otomatis.
+- Memantau kondisi keuangan lewat dashboard, grafik, dan laporan periodik.
 
-Pencatatan keuangan pribadi sering dilakukan secara manual menggunakan catatan, spreadsheet, atau bahkan tidak dilakukan sama sekali.
+## 2. Masalah yang Diselesaikan
 
-Hal tersebut dapat menyebabkan:
+Banyak orang mencatat keuangan secara manual lewat catatan atau spreadsheet, atau tidak mencatat sama sekali. Akibatnya, uang terasa "habis begitu saja".
 
-- Pengguna sulit mengetahui jumlah pemasukan dan pengeluaran.
-- Pengguna sulit mengetahui ke mana uang digunakan.
-- Riwayat transaksi tidak terorganisir.
-- Pengguna kesulitan memantau kondisi keuangan dalam periode tertentu.
-- Perhitungan saldo masih dilakukan secara manual.
+| Masalah hari ini | Dampak bagi pengguna |
+| --- | --- |
+| Pemasukan dan pengeluaran tidak tercatat rapi | Sulit tahu total uang yang masuk dan keluar |
+| Tidak ada pengelompokan | Sulit tahu ke mana uang digunakan |
+| Riwayat transaksi tersebar | Data tidak terorganisir dan sulit dicari |
+| Tidak ada tampilan per periode | Sulit memantau kondisi keuangan mingguan, bulanan, atau tahunan |
+| Saldo dihitung manual | Rawan salah hitung dan memakan waktu |
 
-Aplikasi ini dibuat untuk menyediakan sistem pencatatan keuangan yang lebih terstruktur dan mudah digunakan.
+**Solusi:** sistem pencatatan keuangan yang terstruktur, mudah digunakan, dan menghitung semuanya secara otomatis.
 
----
+## 3. Tujuan dan Batasan
 
-# 3. Goals
-
-Tujuan utama aplikasi:
+### Tujuan produk
 
 1. Memudahkan pengguna mencatat pemasukan.
 2. Memudahkan pengguna mencatat pengeluaran.
 3. Mengelompokkan transaksi berdasarkan kategori.
 4. Menghitung saldo secara otomatis.
 5. Menampilkan riwayat transaksi.
-6. Menampilkan ringkasan kondisi keuangan melalui dashboard.
-7. Menyediakan laporan keuangan berdasarkan periode tertentu.
-8. Menyediakan sistem yang mudah digunakan dan responsive.
+6. Menampilkan ringkasan keuangan melalui dashboard.
+7. Menyediakan laporan keuangan per periode.
+8. Menyediakan antarmuka yang mudah digunakan dan responsive.
 
----
+### Di luar cakupan versi awal (MVP)
 
-# 4. Non-Goals
+Fitur berikut sengaja tidak dikerjakan dulu agar MVP tetap fokus, dan dapat dikembangkan di versi berikutnya:
 
-Fitur berikut **tidak menjadi fokus pada versi awal (MVP)**:
-
-- Integrasi rekening bank.
-- Integrasi e-wallet.
+- Integrasi rekening bank dan e-wallet.
 - Sistem investasi.
-- Pembayaran tagihan secara langsung.
+- Pembayaran tagihan langsung.
 - Sistem akuntansi perusahaan.
-- Prediksi keuangan menggunakan AI.
+- Prediksi keuangan berbasis AI.
 
-Fitur tersebut dapat dikembangkan pada versi berikutnya.
+## 4. Persona Pengguna
 
----
+| Persona | Kebutuhan utama |
+| --- | --- |
+| **Mahasiswa** | Mencatat uang saku, makanan, transportasi, kebutuhan kuliah, dan hiburan |
+| **Karyawan** | Mencatat gaji dan pengeluaran bulanan, memantau pengeluaran per kategori, mengetahui saldo yang tersedia |
+| **Pengguna umum** | Sistem sederhana untuk mengelola keuangan sehari-hari |
 
-# 5. Target Users
+## 5. Fitur Utama
 
-## Mahasiswa
+### 5.1 Autentikasi
 
-Membutuhkan aplikasi untuk mencatat:
+Pengguna dapat register, login, logout, dan mengubah password. Sistem memvalidasi data login sebelum memberi akses ke dashboard.
 
-- Uang saku.
-- Pengeluaran makanan.
-- Transportasi.
-- Kebutuhan kuliah.
-- Hiburan.
+| Form | Field |
+| --- | --- |
+| Register | Nama, email, password, konfirmasi password |
+| Login | Email, password |
 
-## Karyawan
+*User story: sebagai pengguna baru, saya ingin membuat akun agar data keuangan saya tersimpan aman dan hanya bisa saya akses.*
 
-Membutuhkan aplikasi untuk:
+### 5.2 Dashboard
 
-- Mencatat gaji.
-- Mencatat pengeluaran bulanan.
-- Memantau pengeluaran berdasarkan kategori.
-- Mengetahui saldo yang tersedia.
+Dashboard adalah halaman pertama setelah login dan menampilkan ringkasan keuangan sekilas:
 
-## Pengguna Umum
-
-Membutuhkan sistem sederhana untuk mengelola keuangan pribadi sehari-hari.
-
----
-
-# 6. Core Features
-
-## 6.1 Authentication
-
-Pengguna dapat:
-
-- Register.
-- Login.
-- Logout.
-- Mengubah password.
-
-### Register
-
-Field:
-
-- Nama.
-- Email.
-- Password.
-- Konfirmasi password.
-
-### Login
-
-Field:
-
-- Email.
-- Password.
-
-Sistem melakukan validasi terhadap data login sebelum memberikan akses ke dashboard.
-
----
-
-## 6.2 Dashboard
-
-Dashboard menampilkan ringkasan keuangan pengguna.
-
-Informasi yang ditampilkan:
-
-- Total saldo.
-- Total pemasukan.
-- Total pengeluaran.
+- Total saldo, total pemasukan, dan total pengeluaran.
 - Jumlah transaksi.
 - Grafik pemasukan dan pengeluaran.
 - Transaksi terbaru.
 
-### Rumus Saldo
-
-```text
-Saldo = Total Pemasukan - Total Pengeluaran
+```latex
+Saldo = Total\ Pemasukan - Total\ Pengeluaran
 ```
 
----
+*User story: sebagai pengguna, saya ingin melihat kondisi keuangan saya begitu login tanpa menghitung manual.*
 
-## 6.3 Transaction Management
+### 5.3 Manajemen Transaksi (CRUD)
 
-Pengguna dapat melakukan CRUD terhadap transaksi.
+Pengguna dapat menambah, melihat, mengubah, dan menghapus transaksi miliknya.
 
-### Create
+| Field | Wajib | Keterangan |
+| --- | --- | --- |
+| Jenis transaksi | Ya | `income` (pemasukan) atau `expense` (pengeluaran) |
+| Nominal | Ya | Jumlah uang |
+| Kategori | Ya | Sesuai jenis transaksi |
+| Tanggal | Ya | Tanggal transaksi terjadi |
+| Deskripsi | Tidak | Catatan tambahan |
 
-Pengguna dapat menambahkan transaksi baru.
+*User story: sebagai pengguna, saya ingin mencatat transaksi dalam hitungan detik agar tidak malas mencatat.*
 
-Field:
+### 5.4 Laporan Keuangan
 
-| Field | Required |
-|---|---|
-| Jenis transaksi | Yes |
-| Nominal | Yes |
-| Kategori | Yes |
-| Tanggal | Yes |
-| Deskripsi | No |
+Pengguna dapat melihat laporan berdasarkan periode: hari ini, minggu ini, bulan ini, tahun ini, atau rentang tanggal kustom. Laporan menampilkan total pemasukan, total pengeluaran, saldo, pengeluaran per kategori, dan grafik keuangan.
 
-Jenis transaksi:
+### 5.5 Profil Pengguna
 
-```text
-income
-expense
-```
+Pengguna dapat melihat dan mengubah nama, email, dan password.
 
-### Read
+## 6. Kategori dan Riwayat Transaksi
 
-Pengguna dapat melihat daftar transaksi miliknya.
+### Kategori bawaan
 
-### Update
+| Pemasukan (income) | Pengeluaran (expense) |
+| --- | --- |
+| Gaji | Makanan |
+| Uang Saku | Transportasi |
+| Bonus | Belanja |
+| Freelance | Pendidikan |
+| Penjualan | Hiburan |
+| Lainnya | Kesehatan |
+|  | Tagihan |
+|  | Lainnya |
 
-Pengguna dapat mengubah transaksi yang sudah dibuat.
+Kategori kustom (buatan pengguna) direncanakan untuk versi berikutnya.
 
-### Delete
+### Halaman riwayat transaksi
 
-Pengguna dapat menghapus transaksi.
+Halaman ini menampilkan seluruh transaksi pengguna, dengan contoh tampilan berikut:
 
----
-
-# 7. Transaction Categories
-
-## Income
-
-Kategori pemasukan:
-
-- Gaji.
-- Uang Saku.
-- Bonus.
-- Freelance.
-- Penjualan.
-- Lainnya.
-
-## Expense
-
-Kategori pengeluaran:
-
-- Makanan.
-- Transportasi.
-- Belanja.
-- Pendidikan.
-- Hiburan.
-- Kesehatan.
-- Tagihan.
-- Lainnya.
-
-Kategori dapat dikembangkan menjadi fitur custom category pada versi berikutnya.
-
----
-
-# 8. Transaction History
-
-Halaman transaksi menampilkan seluruh transaksi pengguna.
-
-Contoh:
-
-| Date | Category | Description | Type | Amount |
-|---|---|---|---|---:|
+| Tanggal | Kategori | Deskripsi | Jenis | Nominal |
+| --- | --- | --- | --- | --: |
 | 30/09/2026 | Makanan | Makan siang | Expense | Rp25.000 |
 | 29/09/2026 | Transportasi | Bensin | Expense | Rp50.000 |
 | 28/09/2026 | Gaji | Gaji bulanan | Income | Rp3.000.000 |
 
-Fitur:
+Fitur di halaman ini: pencarian, filter jenis transaksi, filter kategori, filter tanggal, edit, dan hapus.
 
-- Search.
-- Filter jenis transaksi.
-- Filter kategori.
-- Filter tanggal.
-- Edit transaksi.
-- Hapus transaksi.
+## 7. Alur Pengguna dan Peta Halaman
 
----
+&#91;embedded content: alur pengguna dan peta halaman · 10 halaman\]
 
-# 9. Financial Reports
+Pengguna masuk lewat login atau register, lalu semua fitur diakses dari dashboard. Selain `/transactions`, halaman transaksi memiliki `/transactions/create` untuk menambah dan `/transactions/edit/:id` untuk mengubah data.
 
-Pengguna dapat melihat laporan keuangan berdasarkan periode.
+## 8. Desain Database
 
-Filter periode:
+Database terdiri dari tiga tabel. Setiap data terikat ke pemiliknya lewat `user_id`, sehingga data antar-pengguna tidak tercampur.
 
-- Hari ini.
-- Minggu ini.
-- Bulan ini.
-- Tahun ini.
-- Custom date range.
+### Users
 
-Laporan menampilkan:
+| Kolom | Tipe | Keterangan |
+| --- | --- | --- |
+| id | INT | Primary key |
+| name | VARCHAR | Nama pengguna |
+| email | VARCHAR | Email pengguna |
+| password | VARCHAR | Password (hash) |
+| created\_at | DATETIME | Waktu akun dibuat |
 
-- Total pemasukan.
-- Total pengeluaran.
-- Saldo.
-- Pengeluaran berdasarkan kategori.
-- Grafik keuangan.
+### Categories
 
----
+| Kolom | Tipe | Keterangan |
+| --- | --- | --- |
+| id | INT | Primary key |
+| user\_id | INT | Pemilik kategori |
+| name | VARCHAR | Nama kategori |
+| type | ENUM | `income` atau `expense` |
 
-# 10. User Profile
+### Transactions
 
-Pengguna dapat melihat dan mengubah informasi akun.
+| Kolom | Tipe | Keterangan |
+| --- | --- | --- |
+| id | INT | Primary key |
+| user\_id | INT | Pemilik transaksi |
+| category\_id | INT | Kategori transaksi |
+| type | ENUM | `income` atau `expense` |
+| amount | DECIMAL | Nominal transaksi |
+| description | TEXT | Deskripsi transaksi |
+| transaction\_date | DATE | Tanggal transaksi |
+| created\_at | DATETIME | Waktu data dibuat |
 
-Data:
+### Relasi antar tabel
 
-- Nama.
-- Email.
-- Password.
+&#91;embedded content: relasi antar tabel · 3 tabel\]
 
----
+Satu pengguna memiliki banyak kategori dan banyak transaksi, dan satu kategori dipakai oleh banyak transaksi.
 
-# 11. User Flow
+## 9. Teknologi yang Digunakan
 
-```text
-Landing Page
-     |
-     v
-   Login <-------- Register
-     |
-     v
- Dashboard
-     |
-     +-------------------+
-     |                   |
-     v                   v
- Transactions         Reports
-     |
-     v
-Add Transaction
-     |
-     v
-Save Transaction
-     |
-     v
- Database
-     |
-     v
-Update Balance
-     |
-     v
- Dashboard
-```
+| Lapisan | Teknologi |
+| --- | --- |
+| Frontend | HTML5, CSS3, JavaScript, Bootstrap 5 |
+| Backend | Python, Flask |
+| Database | MySQL |
+| Library | Flask-SQLAlchemy, Flask-Login, Werkzeug, Chart.js |
 
----
+## 10. Kebutuhan Sistem
 
-# 12. Application Pages
+### Kebutuhan fungsional
 
-```text
-/
-├── /
-├── /login
-├── /register
-│
-└── /dashboard
-    │
-    ├── /transactions
-    ├── /transactions/create
-    ├── /transactions/edit/:id
-    ├── /categories
-    ├── /reports
-    └── /profile
-```
-
----
-
-# 13. Database Design
-
-## Users
-
-| Column | Type | Description |
-|---|---|---|
-| id | INT | Primary Key |
-| name | VARCHAR | User name |
-| email | VARCHAR | User email |
-| password | VARCHAR | Hashed password |
-| created_at | DATETIME | Account creation date |
-
-## Categories
-
-| Column | Type | Description |
-|---|---|---|
-| id | INT | Primary Key |
-| user_id | INT | Owner |
-| name | VARCHAR | Category name |
-| type | ENUM | income / expense |
-
-## Transactions
-
-| Column | Type | Description |
-|---|---|---|
-| id | INT | Primary Key |
-| user_id | INT | Owner |
-| category_id | INT | Transaction category |
-| type | ENUM | income / expense |
-| amount | DECIMAL | Transaction amount |
-| description | TEXT | Transaction description |
-| transaction_date | DATE | Transaction date |
-| created_at | DATETIME | Creation timestamp |
-
-### Relationship
-
-```text
-Users
-  |
-  +----< Transactions
-  |
-  +----< Categories
-             |
-             +----< Transactions
-```
-
----
-
-# 14. Technology Stack
-
-## Frontend
-
-- HTML5
-- CSS3
-- JavaScript
-- Bootstrap 5
-
-## Backend
-
-- Python
-- Flask
-
-## Database
-
-- MySQL
-
-## Libraries
-
-- Flask-SQLAlchemy
-- Flask-Login
-- Werkzeug
-- Chart.js
-
----
-
-# 15. Functional Requirements
-
-| ID | Requirement | Priority |
-|---|---|---|
-| FR-01 | User dapat melakukan register | Must Have |
-| FR-02 | User dapat melakukan login | Must Have |
-| FR-03 | User dapat melakukan logout | Must Have |
-| FR-04 | User dapat melihat dashboard | Must Have |
-| FR-05 | User dapat menambahkan transaksi | Must Have |
-| FR-06 | User dapat melihat transaksi | Must Have |
-| FR-07 | User dapat mengedit transaksi | Must Have |
-| FR-08 | User dapat menghapus transaksi | Must Have |
+| ID | Kebutuhan | Prioritas |
+| --- | --- | --- |
+| FR-01 | Pengguna dapat register | Must Have |
+| FR-02 | Pengguna dapat login | Must Have |
+| FR-03 | Pengguna dapat logout | Must Have |
+| FR-04 | Pengguna dapat melihat dashboard | Must Have |
+| FR-05 | Pengguna dapat menambahkan transaksi | Must Have |
+| FR-06 | Pengguna dapat melihat transaksi | Must Have |
+| FR-07 | Pengguna dapat mengedit transaksi | Must Have |
+| FR-08 | Pengguna dapat menghapus transaksi | Must Have |
 | FR-09 | Sistem menghitung saldo otomatis | Must Have |
-| FR-10 | User dapat menggunakan kategori transaksi | Must Have |
-| FR-11 | User dapat melakukan filter transaksi | Should Have |
-| FR-12 | User dapat melihat laporan keuangan | Should Have |
-| FR-13 | User dapat melihat grafik keuangan | Should Have |
-| FR-14 | User dapat mengelola profil | Should Have |
+| FR-10 | Pengguna dapat menggunakan kategori transaksi | Must Have |
+| FR-11 | Pengguna dapat memfilter transaksi | Should Have |
+| FR-12 | Pengguna dapat melihat laporan keuangan | Should Have |
+| FR-13 | Pengguna dapat melihat grafik keuangan | Should Have |
+| FR-14 | Pengguna dapat mengelola profil | Should Have |
 
----
+### Kebutuhan non-fungsional
 
-# 16. Non-Functional Requirements
+| Aspek | Persyaratan |
+| --- | --- |
+| Keamanan | Password disimpan dalam bentuk hash; pengguna hanya dapat mengakses data miliknya; endpoint yang butuh autentikasi harus dilindungi |
+| Performa | Transaksi diproses tanpa delay berarti; query database dibuat efisien |
+| Kemudahan penggunaan | Antarmuka sederhana, navigasi mudah dipahami, form transaksi ringkas |
+| Responsive | Dapat digunakan di desktop, laptop, tablet, dan smartphone |
+| Keandalan | Data transaksi tersimpan konsisten dan tidak berubah tanpa tindakan pengguna |
 
-### Security
+## 11. Cakupan MVP dan Fitur Masa Depan
 
-- Password harus disimpan dalam bentuk hash.
-- User hanya dapat mengakses data miliknya sendiri.
-- Endpoint yang membutuhkan autentikasi harus dilindungi.
+### Termasuk dalam MVP
 
-### Performance
-
-- Sistem harus mampu memproses transaksi tanpa delay yang signifikan.
-- Query database harus dibuat secara efisien.
-
-### Usability
-
-- Interface sederhana.
-- Navigasi mudah dipahami.
-- Form transaksi mudah digunakan.
-
-### Responsive
-
-Aplikasi harus dapat digunakan pada:
-
-- Desktop.
-- Laptop.
-- Tablet.
-- Smartphone.
-
-### Reliability
-
-Data transaksi harus tersimpan secara konsisten dan tidak berubah tanpa tindakan pengguna.
-
----
-
-# 17. MVP Scope
-
-Versi pertama aplikasi berfokus pada fitur berikut:
-
-- [ ] Register
-- [ ] Login
-- [ ] Logout
+- [ ] Register, login, dan logout
 - [ ] Dashboard
-- [ ] Tambah transaksi
-- [ ] Daftar transaksi
-- [ ] Edit transaksi
-- [ ] Hapus transaksi
+- [ ] Tambah, lihat, edit, dan hapus transaksi
 - [ ] Kategori transaksi
-- [ ] Perhitungan saldo
+- [ ] Perhitungan saldo otomatis
 - [ ] Filter transaksi
 - [ ] Laporan keuangan
 - [ ] Profil pengguna
 
----
+### Rencana setelah MVP
 
-# 18. Future Features
+- [ ] Export laporan ke PDF dan Excel
+- [ ] Custom category
+- [ ] Budget management dan notifikasi pengeluaran
+- [ ] Recurring transaction dan pengingat tagihan
+- [ ] Integrasi e-wallet dan rekening bank
+- [ ] AI financial assistant dan prediksi pengeluaran
 
-Fitur yang dapat dikembangkan setelah MVP:
+## 12. Kriteria Penerimaan dan Metrik Keberhasilan
 
-- [ ] Export laporan ke PDF.
-- [ ] Export laporan ke Excel.
-- [ ] Custom category.
-- [ ] Budget management.
-- [ ] Notifikasi pengeluaran.
-- [ ] Recurring transaction.
-- [ ] Pengingat tagihan.
-- [ ] Integrasi e-wallet.
-- [ ] Integrasi rekening bank.
-- [ ] AI financial assistant.
-- [ ] Prediksi pengeluaran.
+MVP dinyatakan memenuhi kebutuhan jika semua kriteria berikut terpenuhi.
 
----
+### Kriteria penerimaan
 
-# 19. Acceptance Criteria
+**Autentikasi**
 
-Project dianggap memenuhi kebutuhan MVP apabila:
-
-### Authentication
-
-- [ ] User dapat membuat akun.
-- [ ] User dapat login.
-- [ ] User dapat logout.
+- [ ] Pengguna dapat membuat akun, login, dan logout.
 - [ ] Password tidak disimpan sebagai plaintext.
 
-### Transactions
+**Transaksi**
 
-- [ ] User dapat menambahkan pemasukan.
-- [ ] User dapat menambahkan pengeluaran.
-- [ ] User dapat melihat transaksi.
-- [ ] User dapat mengedit transaksi.
-- [ ] User dapat menghapus transaksi.
-- [ ] Transaksi memiliki kategori.
+- [ ] Pengguna dapat menambahkan pemasukan dan pengeluaran.
+- [ ] Pengguna dapat melihat, mengedit, dan menghapus transaksi.
+- [ ] Setiap transaksi memiliki kategori.
 
-### Balance
+**Saldo**
 
-- [ ] Sistem menghitung total pemasukan.
-- [ ] Sistem menghitung total pengeluaran.
-- [ ] Sistem menghitung saldo secara otomatis.
+- [ ] Sistem menghitung total pemasukan, total pengeluaran, dan saldo secara otomatis.
 - [ ] Saldo berubah setelah transaksi ditambah, diubah, atau dihapus.
 
-### Reports
+**Laporan**
 
-- [ ] User dapat melihat laporan.
-- [ ] User dapat memfilter laporan berdasarkan periode.
+- [ ] Pengguna dapat melihat laporan dan memfilternya berdasarkan periode.
 - [ ] Sistem menampilkan ringkasan pemasukan dan pengeluaran.
 
-### User Data
+**Data pengguna**
 
-- [ ] User hanya dapat melihat transaksi miliknya.
-- [ ] Data antar-user tidak tercampur.
+- [ ] Pengguna hanya dapat melihat transaksi miliknya.
+- [ ] Data antar-pengguna tidak tercampur.
 
----
-
-# 20. Success Metrics
-
-Keberhasilan MVP dapat diukur dari:
+### Metrik keberhasilan
 
 1. Seluruh fungsi CRUD transaksi berjalan.
-2. Perhitungan saldo menghasilkan nilai yang sesuai dengan transaksi.
-3. User dapat menyelesaikan proses pencatatan transaksi tanpa error.
+2. Perhitungan saldo sesuai dengan transaksi yang tercatat.
+3. Pengguna dapat mencatat transaksi tanpa error.
 4. Data transaksi tersimpan dengan benar di database.
 5. Sistem autentikasi berjalan dengan baik.
 6. Dashboard menampilkan data sesuai transaksi pengguna.
 
----
+## 13. Roadmap Pengembangan
 
-# 21. Development Roadmap
+&#91;embedded content: roadmap pengembangan · 8 fase\]
 
-### Phase 1 — Setup
+Fase dikerjakan berurutan dari kiri ke kanan, baris demi baris. Fase Testing mencakup pengujian autentikasi, CRUD, perhitungan saldo, database, dan responsive sebelum aplikasi di-deploy.
 
-- [ ] Membuat repository GitHub.
-- [ ] Membuat struktur project.
-- [ ] Setup virtual environment.
-- [ ] Install dependencies.
-- [ ] Setup Flask.
-- [ ] Setup database.
+## 14. Repository, Issue, dan Definition of Done
 
-### Phase 2 — Authentication
-
-- [ ] Register.
-- [ ] Login.
-- [ ] Logout.
-- [ ] Password hashing.
-- [ ] Session management.
-
-### Phase 3 — Transaction
-
-- [ ] Database transaction.
-- [ ] Create transaction.
-- [ ] Read transaction.
-- [ ] Update transaction.
-- [ ] Delete transaction.
-
-### Phase 4 — Dashboard
-
-- [ ] Total balance.
-- [ ] Total income.
-- [ ] Total expense.
-- [ ] Recent transactions.
-- [ ] Financial chart.
-
-### Phase 5 — Reports
-
-- [ ] Date filter.
-- [ ] Category filter.
-- [ ] Monthly report.
-- [ ] Financial summary.
-
-### Phase 6 — UI/UX
-
-- [ ] Responsive layout.
-- [ ] Navigation.
-- [ ] Form validation.
-- [ ] Error handling.
-- [ ] Empty state.
-
-### Phase 7 — Testing
-
-- [ ] Authentication testing.
-- [ ] CRUD testing.
-- [ ] Balance calculation testing.
-- [ ] Database testing.
-- [ ] Responsive testing.
-
-### Phase 8 — Deployment
-
-- [ ] Production configuration.
-- [ ] Environment variables.
-- [ ] Database production.
-- [ ] Deploy application.
-- [ ] Final testing.
-
----
-
-# 22. GitHub Repository Structure
+### Struktur repository GitHub
 
 ```text
 personal-finance/
-│
 ├── app/
 │   ├── __init__.py
 │   ├── models.py
 │   ├── routes.py
-│   │
 │   ├── templates/
 │   │   ├── base.html
 │   │   ├── login.html
@@ -629,20 +323,14 @@ personal-finance/
 │   │   ├── transaction_form.html
 │   │   ├── reports.html
 │   │   └── profile.html
-│   │
 │   └── static/
-│       ├── css/
-│       │   └── style.css
-│       └── js/
-│           └── script.js
-│
+│       ├── css/style.css
+│       └── js/script.js
 ├── migrations/
-│
 ├── tests/
 │   ├── test_auth.py
 │   ├── test_transactions.py
 │   └── test_dashboard.py
-│
 ├── .env.example
 ├── .gitignore
 ├── config.py
@@ -652,71 +340,26 @@ personal-finance/
 └── PRD.md
 ```
 
----
+### Issue GitHub yang disarankan
 
-# 23. GitHub Issues yang Disarankan
+| # | Issue | # | Issue |
+| --- | --- | --- | --- |
+| 1 | Setup Flask Project | 9 | Create Financial Reports |
+| 2 | Setup Database | 10 | Create Transaction Filters |
+| 3 | Create User Authentication | 11 | Create User Profile |
+| 4 | Create User Model | 12 | Improve Responsive UI |
+| 5 | Create Transaction Model | 13 | Add Form Validation |
+| 6 | Create Category Model | 14 | Add Error Handling |
+| 7 | Create Transaction CRUD | 15 | Testing |
+| 8 | Create Dashboard | 16 | Deployment |
 
-Development dapat dibagi menjadi beberapa issue:
+### Definition of Done
 
-```text
-#1 Setup Flask Project
-#2 Setup Database
-#3 Create User Authentication
-#4 Create User Model
-#5 Create Transaction Model
-#6 Create Category Model
-#7 Create Transaction CRUD
-#8 Create Dashboard
-#9 Create Financial Reports
-#10 Create Transaction Filters
-#11 Create User Profile
-#12 Improve Responsive UI
-#13 Add Form Validation
-#14 Add Error Handling
-#15 Testing
-#16 Deployment
-```
+Sebuah fitur dianggap selesai jika:
 
----
-
-# 24. Definition of Done
-
-Sebuah fitur dianggap selesai apabila:
-
-- [ ] Fitur telah diimplementasikan.
-- [ ] Fitur terhubung dengan database jika diperlukan.
-- [ ] Validasi input telah dibuat.
-- [ ] Error handling telah dibuat.
+- [ ] Fitur sudah diimplementasikan dan terhubung ke database bila perlu.
+- [ ] Validasi input dan error handling sudah dibuat.
 - [ ] Tampilan responsive.
-- [ ] Fitur telah diuji.
-- [ ] Tidak terdapat bug utama.
-- [ ] Code telah di-commit ke GitHub.
-- [ ] Dokumentasi fitur telah diperbarui.
-
----
-
-# 25. Final Product
-
-Produk akhir berupa aplikasi web **Personal Finance** yang memungkinkan pengguna untuk:
-
-```text
-Register
-   ↓
-Login
-   ↓
-Dashboard
-   ↓
-Catat Pemasukan / Pengeluaran
-   ↓
-Kelompokkan Kategori
-   ↓
-Simpan ke Database
-   ↓
-Saldo Dihitung Otomatis
-   ↓
-Lihat Riwayat
-   ↓
-Lihat Laporan & Grafik
-```
-
-Aplikasi diharapkan menjadi sistem pencatatan keuangan pribadi yang sederhana, terstruktur, responsive, dan mudah digunakan oleh pengguna umum.
+- [ ] Fitur sudah diuji dan tidak ada bug utama.
+- [ ] Kode sudah di-commit ke GitHub.
+- [ ] Dokumentasi fitur sudah diperbarui.
